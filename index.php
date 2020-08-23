@@ -35,7 +35,11 @@
     <link href="css/login.css" rel="stylesheet">
     </head>
     <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin"
+        method="post"
+        action="redirect.php"
+
+    >
       <img class="mb-4" src="img/login.png" alt="" width="80" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Insira suas credênciais</h1>
       <label for="inputEmail" class="sr-only">Email</label>
