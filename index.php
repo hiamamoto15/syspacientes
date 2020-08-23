@@ -33,11 +33,28 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/login.css" rel="stylesheet">
+    <script type="text/javascript">
+    function validaTela() {
+        var resposta = true;
+        var senha = document.getElementById("inputPassword");
+        if(senha.lenght == 0) {
+            alert("Digite sua senha.");
+            resposta = false;
+        }
+            else if(senha.length > 6){
+                alert("Senha maior que 6 caracteres");
+                resposta = false;
+            }
+        }
+        return resposta;
+    }
+    </script>
     </head>
     <body class="text-center">
     <form class="form-signin"
         method="post"
         action="redirect.php"
+        onsubmit="return validaTela()"
 
     >
       <img class="mb-4" src="img/login.png" alt="" width="80" height="72">
