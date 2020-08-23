@@ -20,7 +20,7 @@
     $sobrenome = $_GET["sobrenome"];
     echo "O Nome é: " .$nome. " " .$sobrenome;
         */
-
+$erro = $_GET['erro'];
 ?>
 <!DOCTYPE html>
     <html lang="pt-br">
