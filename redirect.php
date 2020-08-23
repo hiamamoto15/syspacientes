@@ -1,6 +1,6 @@
 <?php
-    $email = $_POST["imputEmail"];
-    $senha = $_POST["imputPassword"];
+    $email = $_POST["inputEmail"];
+    $senha = $_POST["inputPassword"];
 
     echo "Email: " . $email. "<br>";
     echo "Senha: " . $senha;
