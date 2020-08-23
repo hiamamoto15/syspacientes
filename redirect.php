@@ -1,4 +1,9 @@
 <?php
+    require_once('variaveis.php');
+    require_once('conexao.php');
+    
+    
+
     $email = $_POST["inputEmail"];
     $senha = $_POST["inputPassword"];
     $validou = true;
