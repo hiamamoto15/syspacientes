@@ -1,6 +1,7 @@
 <?php
     $email = $_POST["inputEmail"];
     $senha = $_POST["inputPassword"];
+    $validou = true;
 
     if(strlen($senha) < 6 ){
         //echo "Senha menor que 6 caracteres";
