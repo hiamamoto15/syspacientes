@@ -6,11 +6,11 @@
         "123456",
         "syspacientes");
     
-    if(!$con){
+    if(!$conexao_bd){
         echo "NÃO FOI POSSIVEL CONECTAR NO BANCO DE DADOS: ";
         exit;
     }
-    
+
 
 
 
