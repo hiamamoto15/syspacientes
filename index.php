@@ -18,8 +18,10 @@
     */
 
     $nome = $_GET["nome"];
-    echo "O Nome é: " .$nome;
+    $sobrenome = $_GET["sobrenome"];
+    echo "O Nome é: " .$nome. " " .$sobrenome;
     
+
 
 
         
