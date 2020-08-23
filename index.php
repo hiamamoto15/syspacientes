@@ -24,7 +24,7 @@ $onload = "";
 $erro = $_GET['erro'];
 
 if(strlen($erro) > 0) {
-    $onload = "onload= 'alert(\'$erro\')'";
+    $onload = "onload= 'alert(\"$erro\")'";
 }
 ?>
 <!DOCTYPE html>
@@ -55,7 +55,7 @@ if(strlen($erro) > 0) {
     }
     </script>
     </head>
-    <body class="text-center" <?php> echo $onload; ?> >
+    <body class="text-center" <?php echo $onload; ?>>
     <form class="form-signin"
         method="post"
         action="redirect.php"
