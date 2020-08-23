@@ -20,7 +20,12 @@
     $sobrenome = $_GET["sobrenome"];
     echo "O Nome é: " .$nome. " " .$sobrenome;
         */
+$onload = "";        
 $erro = $_GET['erro'];
+
+if(strlen($erro) > 0) {
+    $onload = "onload= 'alert(\'$erro\')'";
+}
 ?>
 <!DOCTYPE html>
     <html lang="pt-br">
@@ -50,7 +55,7 @@ $erro = $_GET['erro'];
     }
     </script>
     </head>
-    <body class="text-center">
+    <body class="text-center" <?php> echo $onload; ?> >
     <form class="form-signin"
         method="post"
         action="redirect.php"
