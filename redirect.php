@@ -14,7 +14,7 @@
     $sql = "SELECT * FROM usuarios WHERE email = '$email'";
     $resp =mysqli_query($conexao_bd, $sql);
 
-    if($rows=mysqli_fatch_row($resp)){
+    if($rows=mysqli_fetch_row($resp)){
         echo $rows[0] . " | " . $rows[1] . " | " . $rows[2];
     }
     mysqli_close($conexao_bd);
