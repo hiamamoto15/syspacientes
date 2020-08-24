@@ -1,5 +1,17 @@
 <?php
+    require_once('variaveis.php');
+    require_once('conexao.php');
+    
     $id_usuario = $GET_["id_usuario"];
+    $nome_usuario = " ";
+
+    $sql = "SELECT nome * FROM usuarios WHERE id = " . $id_usuario;
+    $resp = mysqli_query($conexao_bd, $sql);
+    if($rows=mysqli_fetch_row($resp)) {
+        $nome_usuario = $rows[0];
+    }
+    mysqli_close($conexao_bd);
+
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +25,7 @@
 </head>
 <body>
     <?php
-    echo "<h3>Usuario: " . $id_usuario . "</h3> ";
+    echo "<h3>Bem vindo: " . $nome_usuario . "</h3> ";
     ?>
 </body>
 </html>
