@@ -2,8 +2,6 @@
     require_once('variaveis.php');
     require_once('conexao.php');
     
-    
-
     $email = $_POST["inputEmail"];
     $senha = $_POST["inputPassword"];
     $validou = false;
@@ -12,7 +10,7 @@
 
     //validar login
 
-    $sql = "SELECT id,email,senha * FROM usuarios WHERE email = '$email'";
+    $sql = "SELECT id, email, senha FROM usuarios WHERE email = '$email'";
     $resp =mysqli_query($conexao_bd, $sql);
 
     if($rows=mysqli_fetch_row($resp)){
