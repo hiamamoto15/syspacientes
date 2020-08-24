@@ -2,7 +2,7 @@
     require_once('variaveis.php');
     require_once('conexao.php');
 
-    $id_usuario = $GET_["id_usuario"];
+    $id_usuario = $_GET["id_usuario"];
     $nome_usuario = "";
 
     $sql = "SELECT nome FROM usuarios WHERE id = " . $id_usuario;
@@ -27,6 +27,7 @@
         
 </head>
 <body>
+
 <div class="container">
 
 <!-- Static navbar -->
