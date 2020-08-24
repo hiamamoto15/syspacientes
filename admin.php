@@ -5,7 +5,7 @@
     $id_usuario = $_GET["id_usuario"];
     $nome_usuario = "";
 
-    $sql = "SELECT nome * FROM usuarios WHERE id = " . $id_usuario;
+    $sql = "SELECT nome FROM usuarios WHERE id = " . $id_usuario;
     $resp = mysqli_query($conexao_bd, $sql);
     if($rows=mysqli_fetch_row($resp)) {
         $nome_usuario = $rows[0];
