@@ -1,9 +1,13 @@
 <?php
+    session_start();
     require_once('variaveis.php');
     require_once('conexao.php');
 
+
     $id_usuario = $_GET["id_usuario"];
+    $id_usuario_session = $_SESSION["id_usuario"];
     $nome_usuario = "";
+
 
     $sql = "SELECT nome FROM usuarios WHERE id = " . $id_usuario;
     $resp = mysqli_query($conexao_bd, $sql);
@@ -67,6 +71,7 @@
 <div class="jumbotron">
   <h1><?php echo "<h3>Bem vindo: ". $nome_usuario . "</h3> "; ?></h1>
   <p>Esta é sua pagina principal, nela você pode...</p>
+  <p> Sessão: <?php echo($id_usuario_session); ?></p>
   <p>
     <a class="btn btn-lg btn-primary" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" role="button">Clique para saber mais &raquo;</a>
   </p>

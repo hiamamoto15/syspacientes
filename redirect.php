@@ -4,6 +4,12 @@
     
     $email = $_POST["inputEmail"];
     $senha = $_POST["inputPassword"];
+
+    //iniciando sessao
+    session_start();
+    $_SESSION['$id_usuario'] = 0;
+
+
     $validou = false;
     $erro = "Nenhuma credencial encontrada";
     $id_usuario = 0;
