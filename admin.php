@@ -3,12 +3,14 @@
    require_once('variaveis.php');
    require_once('conexao.php');
 
+   //$id_usuario = $_GET["id_usuario"];
    
+   //recuperando dados da sessao
    $id_usuario   = $_SESSION["id_usuario"]; 
    $tipoAcesso   = $_SESSION["tipo_acesso"]; 
    $nome_usuario = "";
 
-   
+   //validar se codigo do usuario esta na sesao
    if(strlen($id_usuario) == 0){
       header("location: index.php");
    }
@@ -28,12 +30,17 @@
     <link rel="icon" href="img/favicon/favicon2.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
-   
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
 
     <div class="container">
 
+      <!-- Static navbar -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
         <a class="navbar-brand" href="#">SysPacientes</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +81,7 @@
         </div>
       </nav>
 
-      
+      <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>Sistema de Pacientes!!!</h1>
         <p>Bem vindo <?php echo($nome_usuario); ?>.</p>        
@@ -82,7 +89,7 @@
           <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
         </p>
         <p>
-        
+        <!-- <a class="btn btn-lg btn-success" href="usuario.php" role="button">Editar usuário</a>-->
         </p>
         <p>
          <a class="btn btn-lg btn-danger" href="logout.php" role="button">Sair</a>

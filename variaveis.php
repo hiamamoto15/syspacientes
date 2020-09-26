@@ -1,3 +1,4 @@
 <?php
-global $conexao_bd;
+   global $conexao_bd;
+
 ?>
