@@ -36,9 +36,11 @@
 
 
     if($validou) {
-    echo "<hr>";
+    /* echo "<hr>";
     echo "Email: " . $email. "<br>";
     echo "Senha: " . $senha;
+    */
+    $_SESSION["id+usuario"] = $id_usuario;
     header("location:admin.php?id_usuario=$id_usuario");
 
     }else {
