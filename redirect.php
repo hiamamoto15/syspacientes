@@ -23,13 +23,14 @@
    //validar login
    $sql = "SELECT id, email, senha, tipo_acesso FROM usuarios WHERE email = '$email'";
    $resp = mysqli_query($conexao_bd, $sql);
-   
+
    if($rows=mysqli_fetch_row($resp)){      
       if($senha == $rows[2]){
          $erro        = "";
          $validou     = true;
          $id_usuario  = $rows[0];
          $tipo_acesso = $rows[3];
+         
       }else{
          $erro    = "Credenciais inválidas!";
          $validou = false;
