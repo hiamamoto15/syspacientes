@@ -33,6 +33,8 @@
     <link href="css/navbar.css" rel="stylesheet">
     <link rel="stylesheet" href="css/sweetalert2.css">
     <script src="js/sweetalert2.js"></script>
+    <a class='btn btn-lg btn-primary' href='pessoa.php?idUsuario=$id' role='button'>NOVA PESSOA</a>&nbsp;
+    
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -162,6 +164,6 @@
         })
       }
     </script>
-    <a class='btn btn-lg btn-success' href='pessoa.php?idUsuario=$id' role='button'>NOVA PESSOA</a>&nbsp;
+    
 </body>
 </html>
