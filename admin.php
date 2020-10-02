@@ -86,7 +86,7 @@
         <h1>Sistema de Pacientes!!!</h1>
         <p>Bem vindo <?php echo($nome_usuario); ?>.</p>        
         <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Ver mais informações &raquo;</a>
         </p>
         <p>
         <!-- <a class="btn btn-lg btn-success" href="usuario.php" role="button">Editar usuário</a>-->
