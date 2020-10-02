@@ -111,7 +111,7 @@
                      echo("<td>$email</td>");
                      echo("<td>");
                      if($tipoAcesso == 1){
-                        echo("<a class='btn btn-lg btn-success' href='usuario.php?idUsuario=$id' role='button'>Editar</a>&nbsp;");
+                        echo("<a class='btn btn-lg btn-success' href='pessoa_list.php?idUsuario=$id' role='button'>Editar</a>&nbsp;");
                         if($id != $id_usuario)
                           echo("<a class='btn btn-lg btn-danger'  href='javascript:excluirUsuario($id)' role='button'>Excluir</a>");
                      }else{
