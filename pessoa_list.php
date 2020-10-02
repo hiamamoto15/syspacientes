@@ -162,5 +162,6 @@
         })
       }
     </script>
+    <a class='btn btn-lg btn-success' href='pessoa.php?idUsuario=$id' role='button'>NOVA PESSOA</a>&nbsp;
 </body>
 </html>
