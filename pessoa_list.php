@@ -7,6 +7,7 @@
    
    //recuperando dados da sessao
    $id_usuario   = $_SESSION["id_usuario"];   
+   $tipoAcesso   = $_SESSION["tipo_acesso"]; 
    $nome_usuario = "";
 
    //validar se codigo do usuario esta na sesao
@@ -25,10 +26,13 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>SysPacientes - ADM</title>
+   <title>SysPacientes - Lista de usuários</title>
     <link rel="icon" href="img/favicon/favicon2.ico">
+    <script src="js/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/sweetalert2.css">
+    <script src="js/sweetalert2.js"></script>
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -48,17 +52,23 @@
 
         <div class="collapse navbar-collapse" id="navbarsExample09">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item ">
+            <li class="nav-item">
               <a class="nav-link" href="admin.php">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown active">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown09">
-                <a class="dropdown-item" href="#">Cadastro de pessoas</a>
-                <a class="dropdown-item" href="usuario_list.php">Cadastro de usuários</a>                
-                <a class="dropdown-item" href="#">Cadastro de pacientes</a>
-              </div>
-            </li>
+            <?php 
+            if($tipoAcesso != 3) {
+            ?>
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown09">
+                  <a class="dropdown-item" href="#">Cadastro de pessoas</a>
+                  <a class="dropdown-item" href="usuario_list2.php">Cadastro de usuários</a>                
+                  <a class="dropdown-item" href="#">Cadastro de pacientes</a>
+                </div>
+              </li>
+            <?php
+            }
+            ?>            
           </ul>  
           <ul class="navbar-nav navbar-right">
             <li class="nav-item dropdown">
@@ -76,39 +86,49 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>Listagem de usuários:</h1>
+        <h1>Lista de usuários</h1>
+        <hr>
         <table class="table">
-        <p>
-         <thead>
-            <tr>
-               <th scope="col">#</th>
-               <th scope="col">Nome</th>
-               <th scope="col">E-mail</th>
-               <th scope="col">...</th>
-            </tr>
-         </thead>
-         <tbody>
-            <?php
-               $sql = "SELECT idPessoa, nome, email FROM pessoas ORDER BY Nome";
-               $resp = mysqli_query($conexao_bd, $sql);
-               while($rows=mysqli_fetch_row($resp)){
-                  $idUsuario   = $rows[0];
-                  $nomeUsuario = $rows[1];
-                  $email       = $rows[2];
-                  echo("<tr>");
-                  echo("<th scope='row'>$idUsuario</td>");
-                  echo("<td>$nomeUsuario</td>");
-                  echo("<td>$email</td>");
-                  echo("<td>");
-                  echo("<a class='btn btn-lg btn-success' href='usuario.php?idUsuario=$idUsuario' role='button'>Editar</a>&nbsp;");
-                  echo("<a class='btn btn-lg btn-danger' href='usuario_excluir.php?idUsuario=$idUsuario' role='button'>Excluir</a>");
-                  echo("</td>");
-                  echo("</tr>");
-               }                
-            ?>
-         </tbody>
-        </table>
-        </p>        
+            <thead>
+               <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">NOME</th>
+                  <th scope="col">E-MAIL</th>
+                  <th scope="col">...</th>
+               </tr>
+            </thead>
+            <tbody>
+               <?php
+                  $sql = "SELECT idPessoa, nome, email FROM usuarios ORDER BY idPessoa";
+                  $resp = mysqli_query($conexao_bd, $sql);
+                  while($rows=mysqli_fetch_row($resp)){
+                     $id    = $rows[0];
+                     $nome  = $rows[1];
+                     $email = $rows[2];
+                     echo("<tr>");
+                     echo("<th scope='row'>$id</th>");
+                     echo("<td>$nome</td>");
+                     echo("<td>$email</td>");
+                     echo("<td>");
+                     if($tipoAcesso == 1){
+                        echo("<a class='btn btn-lg btn-success' href='usuario.php?idUsuario=$id' role='button'>Editar</a>&nbsp;");
+                        if($id != $id_usuario)
+                          echo("<a class='btn btn-lg btn-danger'  href='javascript:excluirUsuario($id)' role='button'>Excluir</a>");
+                     }else{
+                       echo("-");
+                     }
+                     echo("</td>");
+                     echo("</tr>");
+                  } 
+               ?>
+            </tbody>
+        </table>  
+        <br>
+        <?php
+        if($tipoAcesso == 1){
+          echo("<a class='btn btn-lg btn-primary' href='usuario.php' role='button'>Novo Usuário</a>");
+        }
+        ?>
       </div>
     </div>
 
@@ -118,5 +138,29 @@
     <?php
     mysqli_close($conexao_bd);
     ?>
+    <script type="text/javascript">
+      function excluirUsuario(id){
+        /*
+        var resp = confirm('Deseja realmente excluir este usuário?');
+        if(resp == true){
+          window.location.href = "usuario_excluir.php?idUsuario=" + id;
+        }
+        */
+        Swal.fire({
+          title: 'Deseja realmente exluir?',
+          text: "Você deseja realmente excluir este usuário!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'SIM',
+          cancelButtonText: 'NÃO'
+        }).then((result) => {
+          if (result.value) {
+            window.location.href = "usuario_excluir.php?idUsuario=" + id;
+          }
+        })
+      }
+    </script>
 </body>
 </html>
