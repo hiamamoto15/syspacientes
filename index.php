@@ -64,7 +64,7 @@
       <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Senha" required>
       
       <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-      <p class="mt-5 mb-3 text-muted">Nome de vocês &copy; 2017-2018</p>
+      <p class="mt-5 mb-3 text-muted">Trend Softwares  &copy; 2017-2018</p>
     </form>
   </body>
  </html>

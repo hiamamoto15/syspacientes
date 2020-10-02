@@ -6,8 +6,7 @@
    $senha      = $_POST["inputPassword"];
 
    //validando variaveis:
-   if(strlen(trim($email)) == 0 &&
-      strlen(trim($senha)) == 0){
+   if(strlen(trim($email)) == 0 && strlen(trim($senha)) == 0){
       header("location: index.php");
    }
    
@@ -17,13 +16,14 @@
    $_SESSION["tipo_acesso"] = 2;
 
    $validou     = false;
-   $erro        = "Nenhuma credencial encontrada!";
    $id_usuario  = 0;
    $tipo_acesso = 2;
+   $erro        = "Nenhuma credencial encontrada!";
 
    //validar login
    $sql = "SELECT id, email, senha, tipo_acesso FROM usuarios WHERE email = '$email'";
    $resp = mysqli_query($conexao_bd, $sql);
+   
    if($rows=mysqli_fetch_row($resp)){      
       if($senha == $rows[2]){
          $erro        = "";
