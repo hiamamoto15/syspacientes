@@ -33,7 +33,7 @@
     <link href="css/navbar.css" rel="stylesheet">
     <link rel="stylesheet" href="css/sweetalert2.css">
     <script src="js/sweetalert2.js"></script>
-    <a class='btn btn-lg btn-primary' href='pessoa.php?idUsuario=$id' role='button'>NOVA PESSOA</a>&nbsp;
+    
     
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -99,6 +99,7 @@
                   <th scope="col">...</th>
                </tr>
             </thead>
+            <a class='btn btn-lg btn-primary' href='pessoa.php?idUsuario=$id' role='button'>NOVA PESSOA</a>&nbsp;
             <tbody>
                <?php
                   $sql = "SELECT idPessoa, nome, email FROM usuarios ORDER BY idPessoa";
