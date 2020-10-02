@@ -107,7 +107,7 @@
                  WHERE id = $id_usuario";
       }else{
          //insert
-         $sql = "INSERT INTO usuarios(   nome,    email,    senha,tipo_acesso)
+         $sql = "INSERT INTO pessoas(   nome,    email,    senha,tipo_acesso)
                                VALUES('$nome', '$email', '$senha',$tipo_acesso)";
       }
       mysqli_query($conexao_bd, $sql);
@@ -115,6 +115,6 @@
       //erro!
    }
    mysqli_close($conexao_bd);
-   header("location:usuario_list2.php");
+   header("location:pessoa.php");
    
 ?>
