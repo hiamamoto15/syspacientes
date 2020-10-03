@@ -4,7 +4,7 @@
    require_once('conexao.php');
    
    
-   $id_pessoa = $_POST["inputIdPessoa"];
+   
 
    $nomePessoa = $_POST["inputNome"];
    $endPessoa = $_POST["inputEndereco"];
