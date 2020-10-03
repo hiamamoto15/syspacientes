@@ -154,13 +154,13 @@
                <input type="cidade" class="form-control" id="inputCidade" 
                      name="inputCidade" placeholder="Cidade"
                      value="<?php echo($cidadePessoa); ?>" required>
-                     
+            </div>        
                      <div class="form-group">
                <label for="inputEstado">Estado:</label>
                <input type="estado" class="form-control" id="inputEstado" 
                      name="inputEstado" placeholder="Estado"
                      value="<?php echo($estadoPessoa); ?>" required>
-                     
+            </div>     
                      <div class="form-group">
                <label for="inputCep">CEP:</label>
                <input type="text" class="form-control" id="inputCep" 
@@ -173,13 +173,13 @@
                <label for="inputData">Data de nascimento:</label>
                 <input type="text"  name="inputData" class="form-control " data-mask="00/00/0000" id="inputData" value="<?php echo($dtnascimentoPessoa ); ?> " required
                 />
-                     
+            </div>   
                      <div class="form-group">
                <label for="inputTelefone">Telefone:</label>
                <input type="telefone" class="form-control" id="inputTelefone" 
                      name="inputTelefone" placeholder="Telefone"
                      value="<?php echo($telefonePessoa); ?>">
-                     
+            </div>         
                      <div class="form-group">
                <label for="inputCell">Celular:</label>
                <input type="text" class="form-control" id="inputCell" 
