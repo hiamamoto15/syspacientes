@@ -26,7 +26,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>SysPacientes - Lista de usuários</title>
+   <title>SysPacientes - Lista de Pessoas</title>
     <link rel="icon" href="img/favicon/favicon2.ico">
     <script src="js/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -113,7 +113,7 @@
                      echo("<td>$email</td>");
                      echo("<td>");
                      if($tipoAcesso == 1){
-                        echo("<a class='btn btn-lg btn-success' href='pessoa_list.php?idUsuario=$id' role='button'>Editar</a>&nbsp;");
+                        echo("<a class='btn btn-lg btn-success' href='pessoa.php?idPessoa=$id' role='button'>Editar</a>&nbsp;");
                         if($id != $id_usuario)
                           echo("<a class='btn btn-lg btn-danger'  href='javascript:excluirUsuario($id)' role='button'>Excluir</a>");
                      }else{

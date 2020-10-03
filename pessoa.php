@@ -3,12 +3,18 @@
    require_once('variaveis.php');
    require_once('conexao.php');
 
-   $idPessoa = $_GET['idPessoa'];
-
    //recuperando dados da sessao
-   $idPessoa   = $_SESSION["idPessoa"];
- 
-   $nome_usuario = "";
+      $id_usuario   = $_SESSION["id_usuario"];
+      $tipoAcesso   = $_SESSION["tipo_acesso"];    
+      $nome_usuario = "";
+      
+      $sql = "SELECT nome FROM usuarios WHERE id = ".$id_usuario;
+      $resp = mysqli_query($conexao_bd, $sql);
+      if($rows=mysqli_fetch_row($resp)){
+          $nome_usuario = $rows[0];
+      }
+
+   $idPessoa = $_GET['idPessoa'];
    
    $sql = "SELECT nome FROM pessoas WHERE id = ".$idPessoa;
    $resp = mysqli_query($conexao_bd, $sql);
@@ -19,13 +25,13 @@
    //verificar se o parametro de id de edição está vazio:   
    if(strlen($idPessoa)==0) 
    
-   $idPessoa = 0;
+   $idPessoa = -1;
    $nomePessoa  = "";
    $endPessoa = "";
    $numPessoa = 0;
    $complePessoa = "";
    $estadoPessoa = "";
-   $cepPessoa  = 0;
+   $cepPessoa  = "";
    $dtnascimentoPessoa   = "";
    $telefonePessoa = 0;
    $celularPessoa = 0;
@@ -81,7 +87,7 @@
               <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown09">
-                  <a class="dropdown-item" href="#">Cadastro de pessoas</a>
+                  <a class="dropdown-item" href="pessoa_list">Cadastro de pessoas</a>
                   <a class="dropdown-item" href="usuario_list2.php">Cadastro de usuários</a>                
                   <a class="dropdown-item" href="#">Cadastro de pacientes</a>
                 </div>
@@ -115,84 +121,84 @@
         ?>
         <form
             method="post"
-            action="usuario_gravar.php">
+            action="pessoa_gravar.php">
             <div class="form-group">
-               <label for="inputNome">Nome Paciente:</label>
+               <label for="inputNome">Nome Pessoa:</label>
                <input type="text" class="form-control" id="inputNome" 
-                     name="inputNome" placeholder="Nome Paciente"
-                     value="<?php echo($nomePessoa); ?>"
-                     >
+                     name="inputNome" placeholder="Nome Pessoa" maxlength="100"
+                     value="<?php echo($nomePessoa); ?>" required >
+                     
             </div>
             <div class="form-group">
                <label for="inputEndereco">Endereço:</label>
                <input type="endereco" class="form-control" id="inputEndereco" 
                      name="inputEndereco" placeholder="Endereco"
-                     value="<?php echo($endPessoa); ?>"
-                     >
+                     value="<?php echo($endPessoa); ?>" required >
+                     
             </div>
             <div class="form-group">
                <label for="inputnumero">Numero:</label>
                <input type="numero" class="form-control" id="inputnumero" 
                      name="inputnumero" placeholder="Numero"
-                     value="<?php echo($numPessoa); ?>"
-                     >
+                     value="<?php echo($numPessoa); ?>" required >
+                     
             </div>
             <div class="form-group">
                <label for="inputcomple">Complemento:</label>
                <input type="complemento" class="form-control" id="inputcomple" 
                      name="inputcomple" placeholder="Complemento"
-                     value="<?php echo($complePessoa); ?>"
-                     >
+                     value="<?php echo($complePessoa); ?>" required >
+                     
             </div>
             <div class="form-group">
                <label for="inputCidade">Cidade:</label>
                <input type="cidade" class="form-control" id="inputCidade" 
                      name="inputCidade" placeholder="Cidade"
-                     value="<?php echo($cidadePessoa); ?>"
-                     >
+                     value="<?php echo($cidadePessoa); ?>" required >
+                     
                      <div class="form-group">
                <label for="inputEstado">Estado:</label>
                <input type="estado" class="form-control" id="inputEstado" 
                      name="inputEstado" placeholder="Estado"
-                     value="<?php echo($estadoPessoa); ?>"
-                     >
+                     value="<?php echo($estadoPessoa); ?>" required >
+                     
                      <div class="form-group">
                <label for="inputCEP">CEP:</label>
                <input type="estado" class="form-control .cep-mask" id="inputCEP" 
                      name="inputCEP" placeholder="CEP"
-                     value="<?php echo($cepPessoa); ?>"
-                     >
+                     value="<?php echo($cepPessoa); ?>" required >
+                     
                      <div class="form-group">
                <label for="inputDtNasc">Data Nascimento:</label>
-               <input type="text" class="form-control date-mask" id="inputDtNasc"  
-                     name="inputDtNasc" placeholder="##/##/####"
-                     value="<?php echo($dtnascimentoPessoa); ?>"
-                     >
+               <input type="text" data-inputmask="'alias': 'date'" class="form-control item" id="inputDtNasc"  
+                     name="inputDtNasc" placeholder="Ex:(##/##/####)"
+                     value="<?php echo($dtnascimentoPessoa); ?>" required >
+                     
                      <div class="form-group">
                <label for="inputTelefone">Telefone:</label>
                <input type="telefone" class="form-control" id="inputTelefone" 
                      name="inputTelefone" placeholder="Telefone"
-                     value="<?php echo($telefonePessoa); ?>"
-                     >
+                     value="<?php echo($telefonePessoa); ?>" required >
+                     
                      <div class="form-group">
                <label for="inputCell">Celular:</label>
                <input type="celular" class="form-control" id="inputCell" 
                      name="inputCell" placeholder="Celular"
-                     value="<?php echo($celularPessoa); ?>"
-                     >
+                     value="<?php echo($celularPessoa); ?>" required >
+                     
             </div>
             <div class="form-group">
                <label for="inputEmail">Email:</label>
                <input type="email" class="form-control" id="inputEmail" 
                      name="inputEmail" placeholder="Email"
-                     value="<?php echo($emailPessoa); ?>"
-                     >
+                     value="<?php echo($emailPessoa); ?>" required >
+                     
             </div>
                 
                </select>
             </div>            
             <input type="hidden" id="inputIdPessoa" name="inputIdPessoa" value="<?php echo($idPessoa) ?>">
-            <a href="pessoa_list.php" button type="submit" class="btn btn-success">Gravar</button>&nbsp;
+            <button type="submit" class="btn btn-success">Gravar</button>&nbsp;
             <a href="pessoa_list.php" class="btn btn-warning" role="button">Retornar</a>
          </form>
       </div>
