@@ -104,7 +104,7 @@
       <div class="jumbotron">
         <?php
          if($idPessoa != 0){
-            echo("<h1>Editando o paciente: $nomePessoa</h1>");
+            echo("<h1>Editando/Cadastrando Paciente: $nomePessoa</h1>");
          }else{
             echo("<h1>Cadastro de novo paciente:</h1>");
          }

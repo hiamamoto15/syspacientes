@@ -57,7 +57,7 @@
               <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown09">
-                  <a class="dropdown-item" href="pessoa_list.php">Cadastro de pessoas</a>
+                  <a class="dropdown-item" href="pessoa_list2.php">Cadastro de pessoas</a>
                   <a class="dropdown-item" href="usuario_list2.php">Cadastro de usuários</a>                
                   <a class="dropdown-item" href="#">Cadastro de pacientes</a>
                 </div>
@@ -122,7 +122,7 @@
         <br>
         <?php
         if($tipoAcesso == 1){
-          echo("<a class='btn btn-lg btn-primary' href='pessoa.php' role='button'>Novo Usuário</a>");
+          echo("<a class='btn btn-lg btn-primary' href='pessoa.php' role='button'>Nova Pessoa</a>");
         }
         ?>
       </div>
