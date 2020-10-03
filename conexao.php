@@ -1,6 +1,6 @@
 <?php
    $conexao_bd = mysqli_connect(
-                  "localhost:8800",
+                  "localhost",
                   "root",
                   "123456",
                   "syspacientes");
