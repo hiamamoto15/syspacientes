@@ -16,7 +16,7 @@
    $celularPessoa = 0;
    $emailPessoa = "";
 
-   $idPessoa = $_GET['idPessoa'];
+   $idPessoa = $_GET['inputIdPessoa'];
       //recuperando dados da sessao
       $id_usuario   = $_SESSION["id_usuario"];
       $tipoAcesso   = $_SESSION["tipo_acesso"];    
