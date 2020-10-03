@@ -180,7 +180,7 @@
             <div class="form-group">
                <label for="inputEmail">Email:</label>
                <input type="email" class="form-control" id="inputEmail" 
-                     name="inputEmail" placeholder="Email"
+                     name="inputEmail" placeholder="E-mail"
                      value="<?php echo($emailPessoa); ?>" required >
                      
             </div>
