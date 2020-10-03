@@ -28,7 +28,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>SysPacientes - Lista de Pessoas</title>
     <link rel="icon" href="img/favicon/favicon2.ico">
-    <script src="js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
