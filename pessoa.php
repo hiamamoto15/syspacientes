@@ -33,7 +33,7 @@
 
    if($idUsuario != 0){
       $sql = "SELECT nome, endereco, numero,
-      complemento, cidade, estado, cep, datanascimento, telefone, celular, email from pessoas WHERE idPessoa = " . $idPessoa;
+      complemento, cidade, estado, cep, datanascimento, telefone, celular, email from pessoas WHERE idPessoa = " .$idPessoa;
       $resp = mysqli_query($conexao_bd, $sql);
       if($rows=mysqli_fetch_row($resp)){
          $nomePessoa          = $rows[0];      
@@ -193,7 +193,7 @@
             </div>            
             <input type="hidden" id="inputIdPessoa" name="inputIdPessoa" value="<?php echo($idPessoa) ?>">
             <button type="submit" class="btn btn-success">Gravar</button>&nbsp;
-            <a href="pessoa_list.php" class="btn btn-warning" role="button">Retornar</a>
+            <a href="pessoa_list2.php" class="btn btn-warning" role="button">Retornar</a>
          </form>
       </div>
     </div>

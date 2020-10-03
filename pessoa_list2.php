@@ -1,3 +1,4 @@
+
 <?php
    session_start();
    require_once('variaveis.php');
@@ -33,8 +34,6 @@
     <link href="css/navbar.css" rel="stylesheet">
     <link rel="stylesheet" href="css/sweetalert2.css">
     <script src="js/sweetalert2.js"></script>
-    
-    
    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -64,7 +63,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown09">
                   <a class="dropdown-item" href="pessoa_list.php">Cadastro de pessoas</a>
-                  <a class="dropdown-item" href=".php">Cadastro de usuários</a>                
+                  <a class="dropdown-item" href="usuario_list.php">Cadastro de usuários</a>                
                   <a class="dropdown-item" href="#">Cadastro de pacientes</a>
                 </div>
               </li>
@@ -101,20 +100,20 @@
             </thead>
             <tbody>
                <?php
-                  $sql = "SELECT idPessoa, nome, email FROM usuarios ORDER BY idPessoa";
+                  $sql = "SELECT idPessoa, nome, email FROM pessoas ORDER BY idPessoas";
                   $resp = mysqli_query($conexao_bd, $sql);
                   while($rows=mysqli_fetch_row($resp)){
-                     $id    = $rows[0];
-                     $nome  = $rows[1];
-                     $email = $rows[2];
+                     $idPessoa  = $rows[0];
+                     $nome      = $rows[1];
+                     $email     = $rows[2];
                      echo("<tr>");
-                     echo("<th scope='row'>$id</th>");
+                     echo("<th scope='row'>$idPessoa</th>");
                      echo("<td>$nome</td>");
                      echo("<td>$email</td>");
                      echo("<td>");
                      if($tipoAcesso == 1){
-                        echo("<a class='btn btn-lg btn-success' href='pessoa_list.php?idUsuario=$id' role='button'>Editar</a>&nbsp;");
-                        if($id != $id_usuario)
+                        echo("<a class='btn btn-lg btn-success' href='usuario.php?idUsuario=$id' role='button'>Editar</a>&nbsp;");
+                        if($idPessoa != $id_usuario)
                           echo("<a class='btn btn-lg btn-danger'  href='javascript:excluirUsuario($id)' role='button'>Excluir</a>");
                      }else{
                        echo("-");
@@ -128,7 +127,7 @@
         <br>
         <?php
         if($tipoAcesso == 1){
-          echo("<a class='btn btn-lg btn-primary' href='pessoa.php' role='button'>Nova Pessoa</a>");
+          echo("<a class='btn btn-lg btn-primary' href='usuario.php' role='button'>Novo Usuário</a>");
         }
         ?>
       </div>
@@ -164,6 +163,5 @@
         })
       }
     </script>
-    
 </body>
 </html>
