@@ -4,10 +4,14 @@
    require_once('conexao.php');
 
    
-   $idPessoa = -1;
+   $idPessoa = $_GET['idPessoa'];
+
+   if(strlen($idPessoa)==0) 
+  
+   $idPessoa = 0;
    $nomePessoa  = "";
    $endPessoa = "";
-   $numPessoa = 0;
+   $numeroPessoa = 0;
    $complePessoa = "";
    $cidadePessoa = "";
    $estadoPessoa = "";
@@ -17,7 +21,7 @@
    $celularPessoa = "";
    $emailPessoa = "";
 
-   $idPessoa = $_GET['idPessoa'];
+   
       //recuperando dados da sessao
       $id_usuario   = $_SESSION["id_usuario"];
       $tipoAcesso   = $_SESSION["tipo_acesso"];    
@@ -29,14 +33,13 @@
           $nome_usuario = $rows[0];
       }
   
-      $sql = "SELECT nome, endereco, numero,
-      complemento, cidade, estado, cep, datanascimento, telefone, celular, email FROM pessoas WHERE idPessoa = " .$idPessoa;
+      $sql = "SELECT nome, endereco, numero, complemento, cidade, estado, cep, datanascimento, telefone, celular, email FROM pessoas WHERE idPessoa = " .$idPessoa;
       $resp = mysqli_query($conexao_bd, $sql);
-      if(resp){
+      
       if($rows=mysqli_fetch_row($resp)){
          $nomePessoa          = $rows[0];      
          $endPessoa           = $rows[1];
-         $numPessoa           = $rows[2];
+         $numeroPessoa        = $rows[2];
          $complePessoa        = $rows[3];
          $cidadePessoa        = $rows[4];
          $estadoPessoa        = $rows[5];
@@ -46,7 +49,7 @@
          $celularPessoa       = $rows[9];
          $emailPessoa         = $rows[10];
       }  
-   }
+   
    
 ?>
 <!DOCTYPE html>
@@ -104,9 +107,12 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <?php
-            echo("<h1>Cadastro/Edição de nova pessoa:</h1>");
-         
+      <?php
+         if($idPessoa != 0){
+            echo("<h1>Editando a pessoa: $nomePessoa</h1>");
+         }else{
+            echo("<h1>Cadastro de nova Pessoa:</h1>");
+         }
         ?>
         <form
             method="post"
