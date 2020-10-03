@@ -12,8 +12,8 @@
    $estadoPessoa = "";
    $cepPessoa  = "";
    $dtnascimentoPessoa   = "";
-   $telefonePessoa = 0;
-   $celularPessoa = 0;
+   $telefonePessoa = "";
+   $celularPessoa = "";
    $emailPessoa = "";
 
    $idPessoa = $_GET['idPessoa'];
@@ -126,53 +126,54 @@
             </div>
             <div class="form-group">
                <label for="inputnumero">Numero:</label>
-               <input type="numero" class="form-control" id="inputnumero" 
-                     name="inputnumero" placeholder="Numero"
-                     value="<?php echo($numPessoa); ?>" required >
+               <input type="number" name="inputNumero" class="form-control" 
+               id="inputNumero" min="0"  value="<?php echo($numeroPessoa ); ?>" required
+               data-bind="value:replyNumber" />
                      
             </div>
             <div class="form-group">
                <label for="inputcomple">Complemento:</label>
                <input type="complemento" class="form-control" id="inputcomple" 
                      name="inputcomple" placeholder="Complemento"
-                     value="<?php echo($complePessoa); ?>" required >
+                     value="<?php echo($complePessoa); ?>">
                      
             </div>
             <div class="form-group">
                <label for="inputCidade">Cidade:</label>
                <input type="cidade" class="form-control" id="inputCidade" 
                      name="inputCidade" placeholder="Cidade"
-                     value="<?php echo($cidadePessoa); ?>" required >
+                     value="<?php echo($cidadePessoa); ?>" required>
                      
                      <div class="form-group">
                <label for="inputEstado">Estado:</label>
                <input type="estado" class="form-control" id="inputEstado" 
                      name="inputEstado" placeholder="Estado"
-                     value="<?php echo($estadoPessoa); ?>" required >
+                     value="<?php echo($estadoPessoa); ?>" required>
                      
                      <div class="form-group">
                <label for="inputCEP">CEP:</label>
-               <input type="estado" class="form-control .cep-mask" id="inputCEP" 
-                     name="inputCEP" placeholder="CEP"
-                     value="<?php echo($cepPessoa); ?>" required >
+               <input type="text" class="form-control" id="inputCep" 
+                        name="inputCep" placeholder="00000-000"
+                        value="<?php echo($cepPessoa); ?>"
+                        required>
                      
                      <div class="form-group">
-               <label for="inputDtNasc">Data Nascimento:</label>
-               <input type="text" data-inputmask="'alias': 'date'" class="form-control item" id="inputDtNasc"  
-                     name="inputDtNasc" placeholder="Ex:(##/##/####)"
-                     value="<?php echo($dtnascimentoPessoa); ?>" required >
+               <label for="inputData">Data de nascimento:</label>
+                <input type="text"  name="inputData" data-inputmask="'alias': 'date'" 
+                class="form-control item" id="inputData" value="<?php echo($dtnascimentoPessoa ); ?> " required
+                />
                      
                      <div class="form-group">
                <label for="inputTelefone">Telefone:</label>
                <input type="telefone" class="form-control" id="inputTelefone" 
                      name="inputTelefone" placeholder="Telefone"
-                     value="<?php echo($telefonePessoa); ?>" required >
+                     value="<?php echo($telefonePessoa); ?>">
                      
                      <div class="form-group">
                <label for="inputCell">Celular:</label>
                <input type="celular" class="form-control" id="inputCell" 
                      name="inputCell" placeholder="Celular"
-                     value="<?php echo($celularPessoa); ?>" required >
+                     value="<?php echo($celularPessoa); ?>">
                      
             </div>
             <div class="form-group">
@@ -199,4 +200,21 @@
 //encerrando a conexao com mysql
 mysqli_close($conexao_bd);
 ?>
+<script>
+    $(document).ready(function(){
+        $(":input").inputmask();
+        $("#inputCep").inputmask({
+        mask: '99999-000',
+        placeholder: ' ',
+        showMaskOnHover: false,
+        showMaskOnFocus: false,
+        onBeforePaste: function (pastedValue, opts) {
+        var processedValue = pastedValue;
+
+        //do something with it
+
+        return processedValue;
+        }
+        });
+</script>    
 </html>
