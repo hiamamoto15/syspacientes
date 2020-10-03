@@ -18,8 +18,8 @@
 
    //verificar se o parametro de id de edição está vazio:   
    if(strlen($idPessoa)==0) 
-      $idPessoa = 0;
-
+   
+   $idPessoa = 0;
    $nomePessoa  = "";
    $endPessoa = "";
    $numPessoa = 0;
@@ -192,7 +192,7 @@
                </select>
             </div>            
             <input type="hidden" id="inputIdPessoa" name="inputIdPessoa" value="<?php echo($idPessoa) ?>">
-            <button type="submit" class="btn btn-success">Gravar</button>&nbsp;
+            <<a href="pessoa_list2.php" button type="submit" class="btn btn-success">Gravar</button>&nbsp;
             <a href="pessoa_list2.php" class="btn btn-warning" role="button">Retornar</a>
          </form>
       </div>
