@@ -6,17 +6,17 @@
    $id_pessoa = $_POST['inputIdPessoa'];
 
    
-   $nomePessoa          = $_POST["inputNome"];
-   $endPessoa           = $_POST["inputEndereco"];
-   $numPessoa           = $_POST["inputnumero"];
-   $complePessoa        = $_POST["inputcomple"];
-   $cidadePessoa        = $_POST["inputCidade"];
-   $estadoPessoa        = $_POST["inputEstado"];
-   $cepPessoa           = $_POST["inputCEP"];
-   $dtnascimentoPessoa  = $_POST["inputDtNasc"]; 
-   $telefonePessoa      = $_POST["inputTelefone"];
-   $celularPessoa       = $_POST["inputCell"];
-   $emailPessoa         = $_POST["inputEmail"];
+   $nomePessoa          = $_POST['inputNome'];
+   $endPessoa           = $_POST['inputEndereco'];
+   $numPessoa           = $_POST['inputnumero'];
+   $complePessoa        = $_POST['inputcomple'];
+   $cidadePessoa        = $_POST['inputCidade'];
+   $estadoPessoa        = $_POST['inputEstado'];
+   $cepPessoa           = $_POST['inputCEP'];
+   $dtnascimentoPessoa  = $_POST['inputDtNasc']; 
+   $telefonePessoa      = $_POST['inputTelefone'];
+   $celularPessoa       = $_POST['inputCell'];
+   $emailPessoa         = $_POST['inputEmail'];
    
          if($id_pessoa){
             $sql = "UPDATE pessoas SET 
