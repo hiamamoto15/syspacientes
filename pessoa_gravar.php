@@ -3,8 +3,7 @@
    require_once('variaveis.php');
    require_once('conexao.php');
 
-   $id_pessoa           = $_POST["inputIdPessoa"];
-
+   $id_pessoa           = $_POST["idPessoa"];
    $nomePessoa          = $_POST["inputNome"];
    $endPessoa           = $_POST["inputEndereco"];
    $numPessoa           = $_POST["inputnumero"];
@@ -17,6 +16,7 @@
    $celularPessoa       = $_POST["inputCell"];
    $emailPessoa         = $_POST["inputEmail"];
    
+   if(strlen($id_pessoa) > 0){
          if($id_pessoa){
             $sql = "UPDATE pessoas SET 
             nome             ='$nomePessoa', 
@@ -30,15 +30,17 @@
             telefone         ='$telefonePessoa',
             celular          ='$celularPessoa',
             email            ='$emailPessoa'
-           WHERE idPessoa    =$id_pessoa";
+           WHERE idPessoa = $id_pessoa";
       
-   }else{
-         //insert
-         $sql = "INSERT INTO pessoas(nome,endereco,numero,complemento,cidade,estado,cep,datanascimento,telefone,celular,email)
+   }else
+         $sql = "INSERT INTO pessoas (nome,endereco,numero,complemento,cidade,estado,cep,datanascimento,telefone,celular,email)
                                VALUES('$nomePessoa','$endPessoa','$numPessoa','$complePessoa','$cidadePessoa','$estadoPessoa',
                                '$cepPessoa','$dtnascimentoPessoa','$telefonePessoa','$celularPessoa','$emailPessoa')";
       }
-   mysqli_query($conexao_bd, $sql);
+      mysqli_query($conexao_bd, $sql);
+   }else{
+      //erro!
+   }
    mysqli_close($conexao_bd);
    header("location:pessoa_list2.php");
    
