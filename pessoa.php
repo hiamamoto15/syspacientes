@@ -172,7 +172,7 @@
                      
                      <div class="form-group">
                <label for="inputData">Data de nascimento:</label>
-                <input type="text"  name="inputData" class="form-control " onkeypress="$(this).mask('000.000.000-00') id="inputData" value="<?php echo($dtnascimentoPessoa ); ?> " required
+                <input type="text"  name="inputData" class="form-control " onkeypress="$(this).mask('00/00/0000')" placeholder="00/00/0000" id="inputData" value="<?php echo($dtnascimentoPessoa ); ?> " required
                 />
             </div>   
                      <div class="form-group">
