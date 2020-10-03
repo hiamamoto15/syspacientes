@@ -164,8 +164,8 @@
                      >
                      <div class="form-group">
                <label for="inputDtNasc">Data Nascimento:</label>
-               <input type="dtnascimento" class="form-control date-mask" id="inputDtNasc"  
-                     name="inputDtNasc" placeholder="Data de nascimento"
+               <input type="text" class="form-control .date-mask" id="inputDtNasc"  
+                     name="inputDtNasc" placeholder="##/##/####"
                      value="<?php echo($dtnascimentoPessoa); ?>"
                      >
                      <div class="form-group">
