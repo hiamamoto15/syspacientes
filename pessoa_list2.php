@@ -31,8 +31,7 @@
     <script src="js/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/sweetalert2.css">
-    <script src="js/sweetalert2.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 <body>
