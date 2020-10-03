@@ -3,26 +3,7 @@
    require_once('variaveis.php');
    require_once('conexao.php');
 
-   //recuperando dados da sessao
-      $id_usuario   = $_SESSION["id_usuario"];
-      $tipoAcesso   = $_SESSION["tipo_acesso"];    
-      $nome_usuario = "";
-      
-      $sql = "SELECT nome FROM usuarios WHERE id = ".$id_usuario;
-      $resp = mysqli_query($conexao_bd, $sql);
-      if($rows=mysqli_fetch_row($resp)){
-          $nome_usuario = $rows[0];
-      }
-
    $idPessoa = $_GET['idPessoa'];
-   
-   $sql = "SELECT nome FROM usuarios WHERE id = ".$id_usuario;
-   $resp = mysqli_query($conexao_bd, $sql);
-   if($rows=mysqli_fetch_row($resp)){
-      $nome_usuario = $rows[0];
-   }
-
-  
    $idPessoa = -1;
    $nomePessoa  = "";
    $endPessoa = "";
@@ -34,10 +15,20 @@
    $telefonePessoa = 0;
    $celularPessoa = 0;
    $emailPessoa = "";
-
+   
+      //recuperando dados da sessao
+      $id_usuario   = $_SESSION["id_usuario"];
+      $tipoAcesso   = $_SESSION["tipo_acesso"];    
+      $nome_usuario = "";
+      
+      $sql = "SELECT nome FROM usuarios WHERE id = ".$id_usuario;
+      $resp = mysqli_query($conexao_bd, $sql);
+      if($rows=mysqli_fetch_row($resp)){
+          $nome_usuario = $rows[0];
+      }
   
       $sql = "SELECT nome, endereco, numero,
-      complemento, cidade, estado, cep, datanascimento, telefone, celular, email from pessoas WHERE idPessoa = " .$idPessoa;
+      complemento, cidade, estado, cep, datanascimento, telefone, celular, email FROM pessoas WHERE idPessoa = " .$idPessoa;
       $resp = mysqli_query($conexao_bd, $sql);
       if(resp){
       if($rows=mysqli_fetch_row($resp)){
