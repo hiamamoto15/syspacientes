@@ -126,9 +126,9 @@
                      
             </div>
             <div class="form-group">
-               <label for="inputnumero">Numero:</label>
+               <label for="inputNumero">Numero:</label>
                <input type="number" name="inputNumero" class="form-control" 
-               id="inputNumero" min="0"  value="<?php echo($numeroPessoa ); ?>" required
+               id="inputNumero" min="0"  value="<?php echo($numeroPessoa); ?>" required
                data-bind="value:replyNumber" />
                      
             </div>
@@ -171,7 +171,7 @@
                      
                      <div class="form-group">
                <label for="inputCell">Celular:</label>
-               <input type="celular" class="form-control" id="inputCell" 
+               <input type="text" class="form-control" id="inputCell" 
                      name="inputCell" placeholder="Celular"
                      value="<?php echo($celularPessoa); ?>">
                      
