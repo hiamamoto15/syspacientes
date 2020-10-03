@@ -88,7 +88,7 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>Lista de usuários</h1>
+        <h1>Lista de Pessoas</h1>
         <hr>
         <table class="table">
             <thead>
