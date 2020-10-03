@@ -3,14 +3,14 @@
    require_once('variaveis.php');
    require_once('conexao.php');
 
-   $id_pessoas = $_GET['idPessoa'];
+   $idPessoas = $_GET['idPessoa'];
 
    //verifico se é vazio:
-   if(strlen($id_pessoas) > 0){
-      $sql = "DELETE FROM pessoas WHERE id = " .$id_pessoas;
+   if(strlen($idPessoas) > 0){
+      $sql = "DELETE FROM pessoas WHERE id = " .$idPessoas;
       mysqli_query($conexao_bd, $sql);
    }else{
-      //erro!
+      alert("Nao foi possivel remover essa pessoa!");
    }
    mysqli_close($conexao_bd);
    header("location:pessoa_list2.php");

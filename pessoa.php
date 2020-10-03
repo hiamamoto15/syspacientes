@@ -9,6 +9,7 @@
    $endPessoa = "";
    $numPessoa = 0;
    $complePessoa = "";
+   $cidadePessoa = "";
    $estadoPessoa = "";
    $cepPessoa  = "";
    $dtnascimentoPessoa   = "";
@@ -104,7 +105,7 @@
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <?php
-            echo("<h1>Cadastro/Edição de novo paciente:</h1>");
+            echo("<h1>Cadastro/Edição de nova pessoa:</h1>");
          
         ?>
         <form
@@ -202,6 +203,7 @@ mysqli_close($conexao_bd);
 <script>
     $(document).ready(function(){
         $(":input").inputmask();
+        
         $("#inputCep").inputmask({
         mask: '00000-000',
         placeholder: ' ',

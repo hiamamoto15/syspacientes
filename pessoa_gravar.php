@@ -3,7 +3,8 @@
    require_once('variaveis.php');
    require_once('conexao.php');
 
-   $id_pessoa           =$_POST["idPessoa"];
+   $id_pessoa           = $_POST["inputIdPessoa"];
+
    $nomePessoa          = $_POST["inputNome"];
    $endPessoa           = $_POST["inputEndereco"];
    $numPessoa           = $_POST["inputnumero"];
@@ -30,17 +31,17 @@
             telefone         ='$telefonePessoa',
             celular          ='$celularPessoa',
             email            ='$emailPessoa'
-           WHERE idPessoa = $id_pessoa";
+           WHERE idPessoa    = $id_pessoa";
       
    }else{
          //insert
-         $sql = "INSERT INTO pessoas (nome,endereco,numero,complemento,cidade,estado,cep,datanascimento,telefone,celular,email)
+         $sql = "INSERT INTO pessoas(nome,endereco,numero,complemento,cidade,estado,cep,datanascimento,telefone,celular,email)
                                VALUES('$nomePessoa','$endPessoa','$numPessoa','$complePessoa','$cidadePessoa','$estadoPessoa',
                                '$cepPessoa','$dtnascimentoPessoa','$telefonePessoa','$celularPessoa','$emailPessoa')";
       }
       mysqli_query($conexao_bd, $sql);
    }else{
-      //erro!
+      alert("Não foi possivel cadastrar!");
    }
    mysqli_close($conexao_bd);
    header("location:pessoa_list2.php");
