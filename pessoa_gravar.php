@@ -2,6 +2,8 @@
    session_start();
    require_once('variaveis.php');
    require_once('conexao.php');
+   
+   $idPessoa = $_POST['inputIdPessoa'];
 
    $idPessoa            = $_POST["inputID"];
    $nomePessoa          = $_POST["inputNome"];

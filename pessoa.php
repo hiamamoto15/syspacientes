@@ -16,15 +16,13 @@
 
    $idPessoa = $_GET['idPessoa'];
    
-   $sql = "SELECT nome FROM pessoas WHERE id = ".$idPessoa;
+   $sql = "SELECT nome FROM usuarios WHERE id = ".$id_usuario;
    $resp = mysqli_query($conexao_bd, $sql);
    if($rows=mysqli_fetch_row($resp)){
-      $nomePessoa = $rows[0];
+      $nome_usuario = $rows[0];
    }
 
-   //verificar se o parametro de id de edição está vazio:   
-   if(strlen($idPessoa)==0) 
-   
+  
    $idPessoa = -1;
    $nomePessoa  = "";
    $endPessoa = "";
@@ -37,10 +35,11 @@
    $celularPessoa = 0;
    $emailPessoa = "";
 
-   if($idUsuario != 0){
+  
       $sql = "SELECT nome, endereco, numero,
       complemento, cidade, estado, cep, datanascimento, telefone, celular, email from pessoas WHERE idPessoa = " .$idPessoa;
       $resp = mysqli_query($conexao_bd, $sql);
+      if(resp){
       if($rows=mysqli_fetch_row($resp)){
          $nomePessoa          = $rows[0];      
          $endPessoa           = $rows[1];
