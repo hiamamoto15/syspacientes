@@ -189,7 +189,7 @@
             </div>            
             <input type="hidden" id="inputIdPessoa" name="inputIdPessoa" value="<?php echo($idPessoa) ?>">
             <button type="submit" class="btn btn-success">Gravar</button>&nbsp;
-            <a href="pessoa_list.php" class="btn btn-warning" role="button">Retornar</a>
+            <a href="pessoa_list2.php" class="btn btn-warning" role="button">Retornar</a>
          </form>
       </div>
     </div>
