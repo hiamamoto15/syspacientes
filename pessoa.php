@@ -158,13 +158,13 @@
                      >
                      <div class="form-group">
                <label for="inputCEP">CEP:</label>
-               <input type="estado" class="form-control cep-mask" id="inputCEP" 
+               <input type="estado" class="form-control .cep-mask" id="inputCEP" 
                      name="inputCEP" placeholder="CEP"
                      value="<?php echo($cepPessoa); ?>"
                      >
                      <div class="form-group">
                <label for="inputDtNasc">Data Nascimento:</label>
-               <input type="text" class="form-control .date-mask" id="inputDtNasc"  
+               <input type="text" class="form-control date-mask" id="inputDtNasc"  
                      name="inputDtNasc" placeholder="##/##/####"
                      value="<?php echo($dtnascimentoPessoa); ?>"
                      >
