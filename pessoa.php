@@ -4,7 +4,7 @@
    require_once('conexao.php');
 
    
-   $idPessoa = -1;
+   $id_pessoa = -1;
    $nomePessoa  = "";
    $endPessoa = "";
    $numPessoa = 0;
@@ -16,7 +16,7 @@
    $celularPessoa = "";
    $emailPessoa = "";
 
-   $idPessoa = $_GET['idPessoa'];
+   $id_pessoa = $_GET['idPessoa'];
       //recuperando dados da sessao
       $id_usuario   = $_SESSION["id_usuario"];
       $tipoAcesso   = $_SESSION["tipo_acesso"];    
@@ -29,7 +29,7 @@
       }
   
       $sql = "SELECT nome, endereco, numero,
-      complemento, cidade, estado, cep, datanascimento, telefone, celular, email FROM pessoas WHERE idPessoa = " .$idPessoa;
+      complemento, cidade, estado, cep, datanascimento, telefone, celular, email FROM pessoas WHERE idPessoa = " .$id_pessoa;
       $resp = mysqli_query($conexao_bd, $sql);
       if(resp){
       if($rows=mysqli_fetch_row($resp)){
@@ -185,7 +185,7 @@
                 
                </select>
             </div>            
-            <input type="hidden" id="inputIdPessoa" name="inputIdPessoa" value="<?php echo($idPessoa) ?>">
+            <input type="hidden" id="inputIdPessoa" name="inputIdPessoa" value="<?php echo($id_pessoa) ?>">
             <button type="submit" class="btn btn-success">Gravar</button>&nbsp;
             <a href="pessoa_list2.php" class="btn btn-warning" role="button">Retornar</a>
          </form>
