@@ -109,7 +109,7 @@
         ?>
         <form
             method="post"
-            action="pessoa_gravar2.php">
+            action="pessoa_gravar.php">
             <div class="form-group">
                <label for="inputNome">Nome Pessoa:</label>
                <input type="text" class="form-control" id="inputNome" 
