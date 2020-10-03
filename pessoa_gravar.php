@@ -16,7 +16,7 @@
    $celularPessoa       = $_POST["inputCell"];
    $emailPessoa         = $_POST["inputEmail"];
    
-   if(strlen($id_pessoa) > 0){
+   
          if($id_pessoa){
             $sql = "UPDATE pessoas SET 
             nome             ='$nomePessoa', 
