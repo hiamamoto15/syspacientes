@@ -65,6 +65,8 @@
 </head>
 <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.0.js'></script>
 <script type='text/javascript' src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+<script type="text/javascript" src="jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="jquery.maskedinput-1.1.4.pack.js"></script>
 </script>
 <body>
    <div class="container">
