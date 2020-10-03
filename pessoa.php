@@ -13,12 +13,12 @@
    $sql = "SELECT nome FROM pessoas WHERE id = ".$idPessoa;
    $resp = mysqli_query($conexao_bd, $sql);
    if($rows=mysqli_fetch_row($resp)){
-      $nome_usuario = $rows[0];
+      $nomePessoa = $rows[0];
    }
 
    //verificar se o parametro de id de edição está vazio:   
-   if(strlen($idUsuario)==0) 
-      $idUsuario = 0;
+   if(strlen($idPessoa)==0) 
+      $idPessoa = 0;
 
    $nomePessoa  = "";
    $endPessoa = "";
@@ -107,8 +107,8 @@
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <?php
-         if($idUsuario != 0){
-            echo("<h1>Editando o paciente: $nomeUsuario</h1>");
+         if($idPessoa != 0){
+            echo("<h1>Editando o paciente: $nomePessoa</h1>");
          }else{
             echo("<h1>Cadastro de novo paciente:</h1>");
          }
@@ -125,7 +125,7 @@
             </div>
             <div class="form-group">
                <label for="inputEndereco">Endereço:</label>
-               <input type="email" class="form-control" id="inputEndereco" 
+               <input type="endereco" class="form-control" id="inputEndereco" 
                      name="inputEndereco" placeholder="Endereco"
                      value="<?php echo($endPessoa); ?>"
                      >
@@ -184,36 +184,11 @@
             <div class="form-group">
                <label for="inputEmail">Email:</label>
                <input type="email" class="form-control" id="inputEmail" 
-                     name="inputCell" placeholder="Email"
+                     name="inputEmail" placeholder="Email"
                      value="<?php echo($emailPessoa); ?>"
                      >
             </div>
-                  <?php
-                  //verificar se novo usuário ou atualizar usuário:
-                  $opcoes = "";
-                  if($idPessoa == 0){
-                     //novo
-                     $sql    = "SELECT id, descricao FROM tipo_acesso";
-                     $resp   = mysqli_query($conexao_bd, $sql);
-                     $opcoes = "<option value='0'>Selecione uma opção</option>";
-                     while($rows=mysqli_fetch_row($resp)){
-                        $idOpcao  = $rows[0];
-                        $desOpcao = $rows[1];
-                        $opcoes  .= "<option value='$idOpcao'>$desOpcao</option>"; 
-                     }
-                  }else{
-                     //atualizar
-                     $opcoes = "<option value='$tipo_acesso'>$descAcesso</option>";
-                     $sql    = "SELECT id, descricao FROM tipo_acesso WHERE id <> $tipo_acesso";
-                     $resp   = mysqli_query($conexao_bd, $sql);
-                     while($rows=mysqli_fetch_row($resp)){
-                        $idOpcao  = $rows[0];
-                        $desOpcao = $rows[1];
-                        $opcoes  .= "<option value='$idOpcao'>$desOpcao</option>"; 
-                     }
-                  }
-                  echo($opcoes);
-                  ?>
+                
                </select>
             </div>            
             <input type="hidden" id="inputIdPessoa" name="inputIdPessoa" value="<?php echo($idPessoa) ?>">
