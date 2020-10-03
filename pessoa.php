@@ -170,7 +170,7 @@
                      
                      <div class="form-group">
                <label for="inputData">Data de nascimento:</label>
-                <input type="text"  name="inputData" class="form-control item" onkeypress="$(this).mask('00/00/0000')" id="inputData" value="<?php echo($dtnascimentoPessoa ); ?> " required
+                <input type="text"  name="inputData" class="form-control " data-mask="00/00/0000" id="inputData" value="<?php echo($dtnascimentoPessoa ); ?> " required
                 />
                      
                      <div class="form-group">
@@ -210,24 +210,9 @@
 //encerrando a conexao com mysql
 mysqli_close($conexao_bd);
 ?>
-<script>
-    $(document).ready(function(){
-        $(":input").inputmask();
-        
-        $("#inputCep").inputmask({
-        mask: '00000-000',
-        placeholder: ' ',
-        showMaskOnHover: false,
-        showMaskOnFocus: false,
-        onBeforePaste: function (pastedValue, opts) {
-        var processedValue = pastedValue;
-
-        //do something with it
-
-        return processedValue;
-
-        }
-        });
-      });
-</script>    
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#inputCep").mask("99.999-999");
+});
+</script>   
 </html>
