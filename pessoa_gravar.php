@@ -16,7 +16,7 @@
    $dtnascimentoPessoa  = $_POST["inputDtNasc"]; 
    $telefonePessoa      = $_POST["inputTelefone"];
    $celularPessoa       = $_POST["inputCell"];
-   $emailPessoa         = $rows["inputEmail"];
+   $emailPessoa         = $_POST["inputEmail"];
    
 
       
