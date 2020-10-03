@@ -44,6 +44,6 @@
       //erro!
    }
    mysqli_close($conexao_bd);
-   header("location:pessoa_list.php");
+   header("location:pessoa_list2.php");
    
 ?>
