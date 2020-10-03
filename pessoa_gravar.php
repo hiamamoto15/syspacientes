@@ -17,9 +17,9 @@
    $telefonePessoa      = $_POST["inputTelefone"];
    $celularPessoa       = $_POST["inputCell"];
    $emailPessoa         = $rows["inputEmail"];
+   
 
-   if(strlen($idPessoa) > 0){
-      if($idPessoa != 0){
+      
          //atualizar
          $sql = "UPDATE pessoas SET 
                   nome='$nomePessoa', 
@@ -34,8 +34,7 @@
                   celular='$celularPessoa,
                   email='$emailPessoa', 
                  WHERE idPessoa = $idPessoa";
-      }else{
-         //insert
+
          $sql = "INSERT INTO pessoas (nome, endereco, numero, complemento, cidade, estado, cep, datanascimento, telefone, celular, email)
                                VALUES('$nomePessoa', '$endPessoa', '$numPessoa',$complePessoa', '$cidadePessoa', '$estadoPessoa', 
                                '$cepPessoa', '$dtnascimentoPessoa''$telefonePessoa', '$celularPessoa', '$emailPessoa')";
