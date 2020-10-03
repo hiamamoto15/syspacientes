@@ -33,12 +33,13 @@
     <link href="css/navbar.css" rel="stylesheet">
     <link rel="stylesheet" href="css/sweetalert2.css">
     <script src="js/sweetalert2.js"></script>
-    
+
 </head>
 <body>
 
     <div class="container">
 
+      <!-- Static navbar -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
         <a class="navbar-brand" href="#">SysPacientes</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +58,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown09">
                   <a class="dropdown-item" href="pessoa_list.php">Cadastro de pessoas</a>
-                  <a class="dropdown-item" href="usuario_list.php">Cadastro de usuários</a>                
+                  <a class="dropdown-item" href="usuario_list2.php">Cadastro de usuários</a>                
                   <a class="dropdown-item" href="#">Cadastro de pacientes</a>
                 </div>
               </li>
@@ -79,6 +80,7 @@
         </div>
       </nav>
 
+      <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>Lista de Pessoas</h1>
         <hr>
@@ -93,7 +95,7 @@
             </thead>
             <tbody>
                <?php
-                  $sql = "SELECT idPessoa, nome, email FROM pessoas ORDER BY idPessoa";
+                  $sql = "SELECT id, nome, email FROM pessoas ORDER BY idPessoa";
                   $resp = mysqli_query($conexao_bd, $sql);
                   while($rows=mysqli_fetch_row($resp)){
                      $id    = $rows[0];
@@ -120,7 +122,7 @@
         <br>
         <?php
         if($tipoAcesso == 1){
-          echo("<a class='btn btn-lg btn-primary' href='pessoa.php' role='button'>Nova Pessoa</a>");
+          echo("<a class='btn btn-lg btn-primary' href='pessoa.php' role='button'>Novo Usuário</a>");
         }
         ?>
       </div>
@@ -156,6 +158,5 @@
         })
       }
     </script>
-    
 </body>
 </html>

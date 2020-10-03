@@ -37,14 +37,14 @@
       }else{
          //insert
          $sql = "INSERT INTO pessoas (nome, endereco, numero, complemento, cidade, estado, cep, datanascimento, telefone, celular, email)
-                               VALUES('$nomePessoa', '$endPessoa', '$numPessoa',$complePessoa', '$cidadePessoa', '$estadoPessoa', '$cepPessoa', '$dtnascimentoPessoa'
-                               '$telefonePessoa', '$celularPessoa', '$emailPessoa')";
+                               VALUES('$nomePessoa', '$endPessoa', '$numPessoa',$complePessoa', '$cidadePessoa', '$estadoPessoa', 
+                               '$cepPessoa', '$dtnascimentoPessoa''$telefonePessoa', '$celularPessoa', '$emailPessoa')";
       }
       mysqli_query($conexao_bd, $sql);
    }else{
       //erro!
    }
    mysqli_close($conexao_bd);
-   header("location:pessoa.php");
+   header("location:pessoa_list.php");
    
 ?>
