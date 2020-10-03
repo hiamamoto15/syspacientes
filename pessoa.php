@@ -3,48 +3,66 @@
    require_once('variaveis.php');
    require_once('conexao.php');
 
-   //$id_usuario = $_GET["id_usuario"];
-   
+   $idPessoa = $_GET['idPessoa'];
+
    //recuperando dados da sessao
-   $id_usuario   = $_SESSION["id_usuario"];   
-   $tipoAcesso   = $_SESSION["tipo_acesso"]; 
+   $idPessoa   = $_SESSION["idPessoa"];
+ 
    $nome_usuario = "";
-
-   //validar se codigo do usuario esta na sesao
-   if(strlen($id_usuario) == 0){
-      header("location: index.php");
-   }
-
-   $sql = "SELECT nome FROM usuarios WHERE id = " . $id_usuario;
+   
+   $sql = "SELECT nome FROM pessoas WHERE id = ".$idPessoa;
    $resp = mysqli_query($conexao_bd, $sql);
    if($rows=mysqli_fetch_row($resp)){
       $nome_usuario = $rows[0];
-   }   
+   }
+
+   //verificar se o parametro de id de edição está vazio:   
+   if(strlen($idUsuario)==0) 
+      $idUsuario = 0;
+
+   $nomePessoa  = "";
+   $endPessoa = "";
+   $numPessoa = 0;
+   $complePessoa = "";
+   $estadoPessoa = "";
+   $cepPessoa  = 0;
+   $dtnascimentoPessoa   = "";
+   $telefonePessoa = 0;
+   $celularPessoa = 0;
+   $emailPessoa = "";
+
+   if($idUsuario != 0){
+      $sql = "SELECT nome, endereco, numero,
+      complemento, cidade, estado, cep, datanascimento, telefone, celular, email from pessoas WHERE idPessoa = " . $idPessoa;
+      $resp = mysqli_query($conexao_bd, $sql);
+      if($rows=mysqli_fetch_row($resp)){
+         $nomePessoa          = $rows[0];      
+         $endPessoa           = $rows[1];
+         $numPessoa           = $rows[2];
+         $complePessoa        = $rows[3];
+         $cidadePessoa        = $rows[4];
+         $estadoPessoa        = $rows[5];
+         $cepPessoa           = $rows[6];
+         $dtnascimentoPessoa  = $rows[7]; 
+         $telefonePessoa      = $rows[8];
+         $celularPessoa       = $rows[9];
+         $emailPessoa         = $rows[10];
+      }  
+   }
+   
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>SysPacientes - Lista de usuários</title>
-    <link rel="icon" href="img/favicon/favicon2.ico">
-    <script src="js/jquery.min.js"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/navbar.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/sweetalert2.css">
-    <script src="js/sweetalert2.js"></script>
-    
-    
-   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+   <title>SysPacientes - Editar usuário</title>
+   <link rel="icon" href="img/favicon/favicon2.ico">
+   <!-- Bootstrap core CSS -->
+   <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
-    <div class="container">
-
+   <div class="container">
       <!-- Static navbar -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
         <a class="navbar-brand" href="#">SysPacientes</a>
@@ -64,13 +82,13 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown09">
                   <a class="dropdown-item" href="#">Cadastro de pessoas</a>
-                  <a class="dropdown-item" href="pessoa_list.php">Cadastro de usuários</a>                
+                  <a class="dropdown-item" href="usuario_list2.php">Cadastro de usuários</a>                
                   <a class="dropdown-item" href="#">Cadastro de pacientes</a>
                 </div>
               </li>
             <?php
             }
-            ?>            
+            ?>
           </ul>  
           <ul class="navbar-nav navbar-right">
             <li class="nav-item dropdown">
@@ -85,46 +103,131 @@
           </ul>
         </div>
       </nav>
-      <?php
-   session_start();
-   require_once('variaveis.php');
-   require_once('conexao.php');
-            
-   $nome        =$_POST["inputNome"];
-   $senha       = $_POST["inputPassword"];
-   $email       = $_POST["inputEmail"];
-   $nome        = $_POST["inputNome"];
-   $tipo_acesso = $_POST["lstTipoAcesso"];
-   $id_usuario  = $_POST["inputIdUsuario"];
-   
-   if(strlen($id_usuario) > 0){
-      if($id_usuario != 0){
-         //atualizar
-         $sql = "UPDATE pessoas SET 
-                  nome='$nome',
-                  endereco='$endereco',
-                  numero='$numero',
-                  complemento='$complemento',
-                  cidade='$cidade',
-                  estado='$estado',
-                  cep='$cep',
-                  datanascimento='$datanascimento',
-                  telefone='$telefone',
-                  celular='$celular',
-                  email='$email', 
-                 WHERE id = $idPessoa";
-      }else{
-         //insert
-         $sql = "INSERT INTO pessoas(   nome, endereco, numero,
-         complemento, cidade, estado, cep, datanascimento, telefone, celular, email)
-                               VALUES('$nome', '$endereco', '$numero','$complemento',
-                               '$cidade','$estado', '$cep', '$datanascimento', '$telefone', '$celular', '$email')";
-      }
-      mysqli_query($conexao_bd, $sql);
-   }else{
-      //erro!
-   }
-   mysqli_close($conexao_bd);
-   header("location:pessoa.php");
-   
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <?php
+         if($idUsuario != 0){
+            echo("<h1>Editando o paciente: $nomeUsuario</h1>");
+         }else{
+            echo("<h1>Cadastro de novo paciente:</h1>");
+         }
+        ?>
+        <form
+            method="post"
+            action="usuario_gravar.php">
+            <div class="form-group">
+               <label for="inputNome">Nome Paciente:</label>
+               <input type="text" class="form-control" id="inputNome" 
+                     name="inputNome" placeholder="Nome Paciente"
+                     value="<?php echo($nomePessoa); ?>"
+                     >
+            </div>
+            <div class="form-group">
+               <label for="inputEndereco">Endereço:</label>
+               <input type="email" class="form-control" id="inputEndereco" 
+                     name="inputEndereco" placeholder="Endereco"
+                     value="<?php echo($endPessoa); ?>"
+                     >
+            </div>
+            <div class="form-group">
+               <label for="inputnumero">Numero:</label>
+               <input type="numero" class="form-control" id="inputnumero" 
+                     name="inputnumero" placeholder="Numero"
+                     value="<?php echo($numPessoa); ?>"
+                     >
+            </div>
+            <div class="form-group">
+               <label for="inputcomple">Complemento:</label>
+               <input type="complemento" class="form-control" id="inputcomple" 
+                     name="inputcomple" placeholder="Complemento"
+                     value="<?php echo($complePessoa); ?>"
+                     >
+            </div>
+            <div class="form-group">
+               <label for="inputCidade">Cidade:</label>
+               <input type="cidade" class="form-control" id="inputCidade" 
+                     name="inputCidade" placeholder="Cidade"
+                     value="<?php echo($cidadePessoa); ?>"
+                     >
+                     <div class="form-group">
+               <label for="inputEstado">Estado:</label>
+               <input type="estado" class="form-control" id="inputEstado" 
+                     name="inputEstado" placeholder="Estado"
+                     value="<?php echo($estadoPessoa); ?>"
+                     >
+                     <div class="form-group">
+               <label for="inputCEP">CEP:</label>
+               <input type="estado" class="form-control" id="inputCEP" 
+                     name="inputCEP" placeholder="CEP"
+                     value="<?php echo($cepPessoa); ?>"
+                     >
+                     <div class="form-group">
+               <label for="inputDtNasc">Data Nascimento:</label>
+               <input type="dtnascimento" class="form-control" id="inputDtNasc" 
+                     name="inputDtNasc" placeholder="Data de nascimento"
+                     value="<?php echo($dtnascimentoPessoa); ?>"
+                     >
+                     <div class="form-group">
+               <label for="inputTelefone">Telefone:</label>
+               <input type="telefone" class="form-control" id="inputTelefone" 
+                     name="inputTelefone" placeholder="Telefone"
+                     value="<?php echo($telefonePessoa); ?>"
+                     >
+                     <div class="form-group">
+               <label for="inputCell">Celular:</label>
+               <input type="celular" class="form-control" id="inputCell" 
+                     name="inputCell" placeholder="Celular"
+                     value="<?php echo($celularPessoa); ?>"
+                     >
+            </div>
+            <div class="form-group">
+               <label for="inputEmail">Email:</label>
+               <input type="email" class="form-control" id="inputEmail" 
+                     name="inputCell" placeholder="Email"
+                     value="<?php echo($emailPessoa); ?>"
+                     >
+            </div>
+                  <?php
+                  //verificar se novo usuário ou atualizar usuário:
+                  $opcoes = "";
+                  if($idPessoa == 0){
+                     //novo
+                     $sql    = "SELECT id, descricao FROM tipo_acesso";
+                     $resp   = mysqli_query($conexao_bd, $sql);
+                     $opcoes = "<option value='0'>Selecione uma opção</option>";
+                     while($rows=mysqli_fetch_row($resp)){
+                        $idOpcao  = $rows[0];
+                        $desOpcao = $rows[1];
+                        $opcoes  .= "<option value='$idOpcao'>$desOpcao</option>"; 
+                     }
+                  }else{
+                     //atualizar
+                     $opcoes = "<option value='$tipo_acesso'>$descAcesso</option>";
+                     $sql    = "SELECT id, descricao FROM tipo_acesso WHERE id <> $tipo_acesso";
+                     $resp   = mysqli_query($conexao_bd, $sql);
+                     while($rows=mysqli_fetch_row($resp)){
+                        $idOpcao  = $rows[0];
+                        $desOpcao = $rows[1];
+                        $opcoes  .= "<option value='$idOpcao'>$desOpcao</option>"; 
+                     }
+                  }
+                  echo($opcoes);
+                  ?>
+               </select>
+            </div>            
+            <input type="hidden" id="inputIdPessoa" name="inputIdPessoa" value="<?php echo($idPessoa) ?>">
+            <button type="submit" class="btn btn-success">Gravar</button>&nbsp;
+            <a href="usuario_list2.php" class="btn btn-warning" role="button">Retornar</a>
+         </form>
+      </div>
+    </div>
+
+
+
+</body>
+<?php
+//encerrando a conexao com mysql
+mysqli_close($conexao_bd);
 ?>
+</html>
