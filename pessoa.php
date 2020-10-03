@@ -109,7 +109,7 @@
         ?>
         <form
             method="post"
-            action="pessoa_gravar.php">
+            action="pessoa_gravar2.php">
             <div class="form-group">
                <label for="inputNome">Nome Pessoa:</label>
                <input type="text" class="form-control" id="inputNome" 
@@ -159,8 +159,7 @@
                      
                      <div class="form-group">
                <label for="inputData">Data de nascimento:</label>
-                <input type="text"  name="inputData" data-inputmask="'alias': 'date'" 
-                class="form-control item" id="inputData" value="<?php echo($dtnascimentoPessoa ); ?> " required
+                <input type="text"  name="inputData" class="form-control item" onkeypress="$(this).mask('00/00/0000')" id="inputData" value="<?php echo($dtnascimentoPessoa ); ?> " required
                 />
                      
                      <div class="form-group">
@@ -204,7 +203,7 @@ mysqli_close($conexao_bd);
     $(document).ready(function(){
         $(":input").inputmask();
         $("#inputCep").inputmask({
-        mask: '99999-000',
+        mask: '00000-000',
         placeholder: ' ',
         showMaskOnHover: false,
         showMaskOnFocus: false,
