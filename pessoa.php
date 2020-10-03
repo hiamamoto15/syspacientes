@@ -61,7 +61,11 @@
    <link rel="icon" href="img/favicon/favicon2.ico">
    <!-- Bootstrap core CSS -->
    <link href="css/bootstrap.min.css" rel="stylesheet">
+
 </head>
+<script type='text/javascript' src='https://code.jquery.com/jquery-1.11.0.js'></script>
+<script type='text/javascript' src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+</script>
 <body>
    <div class="container">
       <!-- Static navbar -->
