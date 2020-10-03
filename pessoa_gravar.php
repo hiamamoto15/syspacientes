@@ -4,11 +4,11 @@
    require_once('conexao.php');
    
    
-   
+   $id_pessoa = $_POST["inputIdPessoa"];
 
    $nomePessoa = $_POST["inputNome"];
    $endPessoa = $_POST["inputEndereco"];
-   $numPessoa  = $_POST["inputNumero"];
+   $numeroPessoa  = $_POST["inputNumero"];
    $complePessoa = $_POST["inputcomple"];
    $cidadePessoa  = $_POST["inputCidade"];
    $estadoPessoa = $_POST["inputEstado"];
@@ -23,7 +23,7 @@
          $sql = "UPDATE pessoas SET 
                   nome='$nomePessoa',
                   endereco='$endPessoa',
-                  numero='$numPessoa',
+                  numero='$numeroPessoa',
                   complemento = '$complePessoa',
                   cidade = '$cidadePessoa',
                   estado = '$estadoPessoa',
