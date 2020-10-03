@@ -42,7 +42,7 @@
 
    mysqli_query($conexao_bd, $sql);
    mysqli_close($conexao_bd);
-   header("location:pessoas_list.php");
+   header("location:pessoa_list2.php");
    echo $sql;
    
 ?>
