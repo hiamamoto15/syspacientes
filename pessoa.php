@@ -3,7 +3,7 @@
    require_once('variaveis.php');
    require_once('conexao.php');
 
-   $idPessoa = $_GET['idPessoa'];
+   
    $idPessoa = -1;
    $nomePessoa  = "";
    $endPessoa = "";
@@ -15,7 +15,8 @@
    $telefonePessoa = 0;
    $celularPessoa = 0;
    $emailPessoa = "";
-   
+
+   $idPessoa = $_GET['idPessoa'];
       //recuperando dados da sessao
       $id_usuario   = $_SESSION["id_usuario"];
       $tipoAcesso   = $_SESSION["tipo_acesso"];    
@@ -77,7 +78,7 @@
               <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown09">
-                  <a class="dropdown-item" href="pessoa_list">Cadastro de pessoas</a>
+                  <a class="dropdown-item" href="pessoa_list2">Cadastro de pessoas</a>
                   <a class="dropdown-item" href="usuario_list2.php">Cadastro de usuários</a>                
                   <a class="dropdown-item" href="#">Cadastro de pacientes</a>
                 </div>
@@ -103,11 +104,8 @@
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <?php
-         if($idPessoa != 0){
-            echo("<h1>Editando/Cadastrando Paciente: $nomePessoa</h1>");
-         }else{
-            echo("<h1>Cadastro de novo paciente:</h1>");
-         }
+            echo("<h1>Cadastro/Edição de novo paciente:</h1>");
+         
         ?>
         <form
             method="post"
