@@ -12,7 +12,7 @@
    $complePessoa = $_POST["inputcomple"];
    $cidadePessoa  = $_POST["inputCidade"];
    $estadoPessoa = $_POST["inputEstado"];
-   $cepPessoa = $_POST["inputCEP"];
+   $cepPessoa = $_POST["inputCep"];
    $dtnascimentoPessoa = $_POST["inputData"];
    $telefonePessoa = $_POST["inputTelefone"];
    $celularPessoa = $_POST["inputCell"];

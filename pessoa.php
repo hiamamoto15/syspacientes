@@ -152,7 +152,7 @@
                      value="<?php echo($estadoPessoa); ?>" required>
                      
                      <div class="form-group">
-               <label for="inputCEP">CEP:</label>
+               <label for="inputCep">CEP:</label>
                <input type="text" class="form-control" id="inputCep" 
                         name="inputCep" placeholder="00000-000"
                         value="<?php echo($cepPessoa); ?>"
@@ -215,7 +215,9 @@ mysqli_close($conexao_bd);
         //do something with it
 
         return processedValue;
+
         }
         });
+      });
 </script>    
 </html>
