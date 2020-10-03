@@ -19,30 +19,12 @@
    $emailPessoa         = $_POST["inputEmail"];
    
 
-      if($id_pessoa){
-         //atualizar
-         $sql = "UPDATE pessoas SET 
-                  nome             ='$nomePessoa', 
-                  endereco         ='$endPessoa',
-                  numero           ='$numPessoa,
-                  complemento      ='$complePessoa,
-                  cidade           ='$cidadePessoa,
-                  estado           ='$estadoPessoa,
-                  cep              ='$cepPessoa,
-                  datanascimento   ='$dtnascimentoPessoa,
-                  telefone         ='$telefonePessoa,
-                  celular          ='$celularPessoa,
-                  email            ='$emailPessoa', 
-                 WHERE idPessoa = $id_pessoa";
-      }else{
+   
          $sql = "INSERT INTO pessoas ( nome, endereco, numero, complemento, cidade, estado, cep, datanascimento, telefone, celular, email)
                                VALUES('$nomePessoa', '$endPessoa', '$numPessoa','$complePessoa', '$cidadePessoa', '$estadoPessoa', 
                                '$cepPessoa', '$dtnascimentoPessoa','$telefonePessoa', '$celularPessoa', '$emailPessoa')";
-      }
-      mysqli_query($conexao_bd, $sql);
-   }else{
-      //erro!
-   }
+
+   mysqli_query($conexao_bd, $sql);
    mysqli_close($conexao_bd);
    header("location:pessoa_list2.php");
    
