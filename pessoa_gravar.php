@@ -30,13 +30,13 @@
                   cep = '$cepPessoa',
                   datanascimento= '$dtnascimentoPessoa',
                   telefone = '$telefonePessoa',
-                  celular = '$celularPessoa'
+                  celular = '$celularPessoa',
                   email='$emailPessoa'
                WHERE idPessoa = $idPessoa";
       }else{
          //insert
          $sql = "INSERT INTO pessoas( nome, endereco, numero, complemento,cidade, estado, cep, datanascimento, , telefone ,  celular, email)
-                               VALUES('$nomePessoa', '$endPessoa','$numeroPessoa','$complePessoa','$cidadePessoa','$estadoPessoa', '$cepPessoa', '$dtnascimentoPessoa', '$telefonePessoa', '$celularPessoa', '$emailPessoa') 
+                               VALUES('$nomePessoa', '$endPessoa','$numeroPessoa','$complePessoa','$cidadePessoa','$estadoPessoa', '$cepPessoa', '$dtnascimentoPessoa', '$telefonePessoa', '$celularPessoa', '$emailPessoa', '$emailPessoa') 
                                ";
       }
 
