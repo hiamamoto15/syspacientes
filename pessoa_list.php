@@ -99,7 +99,6 @@
                   <th scope="col">...</th>
                </tr>
             </thead>
-            <a class='btn btn-lg btn-primary' href='pessoa.php?idUsuario=$id' role='button'>NOVA PESSOA</a>&nbsp;
             <tbody>
                <?php
                   $sql = "SELECT idPessoa, nome, email FROM usuarios ORDER BY idPessoa";
@@ -129,7 +128,7 @@
         <br>
         <?php
         if($tipoAcesso == 1){
-          echo("<a class='btn btn-lg btn-primary' href='usuario.php' role='button'>Novo Usuário</a>");
+          echo("<a class='btn btn-lg btn-primary' href='usuario.php' role='button'>Nova Pessoa</a>");
         }
         ?>
       </div>

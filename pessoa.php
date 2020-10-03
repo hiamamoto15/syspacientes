@@ -89,7 +89,8 @@
    session_start();
    require_once('variaveis.php');
    require_once('conexao.php');
-
+            
+   $nome        =$_POST["inputNome"];
    $senha       = $_POST["inputPassword"];
    $email       = $_POST["inputEmail"];
    $nome        = $_POST["inputNome"];
@@ -99,16 +100,25 @@
    if(strlen($id_usuario) > 0){
       if($id_usuario != 0){
          //atualizar
-         $sql = "UPDATE usuarios SET 
-                  nome='$nome', 
+         $sql = "UPDATE pessoas SET 
+                  nome='$nome',
+                  endereco='$endereco',
+                  numero='$numero',
+                  complemento='$complemento',
+                  cidade='$cidade',
+                  estado='$estado',
+                  cep='$cep',
+                  datanascimento='$datanascimento',
+                  telefone='$telefone',
+                  celular='$celular',
                   email='$email', 
-                  senha='$senha',
-                  tipo_acesso= $tipo_acesso
-                 WHERE id = $id_usuario";
+                 WHERE id = $idPessoa";
       }else{
          //insert
-         $sql = "INSERT INTO pessoas(   nome,    email,    senha,tipo_acesso)
-                               VALUES('$nome', '$email', '$senha',$tipo_acesso)";
+         $sql = "INSERT INTO pessoas(   nome, endereco, numero,
+         complemento, cidade, estado, cep, datanascimento, telefone, celular, email)
+                               VALUES('$nome', '$endereco', '$numero','$complemento',
+                               '$cidade','$estado', '$cep', '$datanascimento', '$telefone', '$celular', '$email')";
       }
       mysqli_query($conexao_bd, $sql);
    }else{
