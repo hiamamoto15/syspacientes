@@ -3,7 +3,7 @@
    require_once('variaveis.php');
    require_once('conexao.php');
 
-   $id_pessoa           = $_POST["inputIdPessoa"];
+   $id_pessoa           = $_GET["inputIdPessoa"];
 
    $nomePessoa          = $_POST["inputNome"];
    $endPessoa           = $_POST["inputEndereco"];
@@ -40,9 +40,6 @@
                                '$cepPessoa','$dtnascimentoPessoa','$telefonePessoa','$celularPessoa','$emailPessoa')";
       }
       mysqli_query($conexao_bd, $sql);
-   }else{
-      alert("Não foi possivel cadastrar!");
-   }
    mysqli_close($conexao_bd);
    header("location:pessoa_list2.php");
    
