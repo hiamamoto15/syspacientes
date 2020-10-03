@@ -158,13 +158,13 @@
                      >
                      <div class="form-group">
                <label for="inputCEP">CEP:</label>
-               <input type="estado" class="form-control" id="inputCEP" 
+               <input type="estado" class="form-control" onkeypress="$(this).mask('00.000-000')" id="inputCEP" 
                      name="inputCEP" placeholder="CEP"
                      value="<?php echo($cepPessoa); ?>"
                      >
                      <div class="form-group">
                <label for="inputDtNasc">Data Nascimento:</label>
-               <input type="dtnascimento" class="form-control" id="inputDtNasc" 
+               <input type="dtnascimento" class="form-control" onkeypress="$(this).mask('00/00/0000')" id="inputDtNasc"  
                      name="inputDtNasc" placeholder="Data de nascimento"
                      value="<?php echo($dtnascimentoPessoa); ?>"
                      >
