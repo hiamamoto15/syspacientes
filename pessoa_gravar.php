@@ -4,7 +4,7 @@
    require_once('conexao.php');
    
    
-   $id_pessoa = $_GET["inputIdPessoa"];
+   $idPessoa= $_POST["inputIdPessoa"];
 
    $nomePessoa = $_POST["inputNome"];
    $endPessoa = $_POST["inputEndereco"];
@@ -18,7 +18,7 @@
    $celularPessoa = $_POST["inputCell"];
    $emailPessoa = $POST["inputEmail"];
    
-      if($id_pessoa){
+      if($idPessoa){
          //atualizar
          $sql = "UPDATE pessoas SET 
                   nome='$nomePessoa',
@@ -32,7 +32,7 @@
                   telefone = '$telefonePessoa',
                   celular = '$celularPessoa'
                   email='$emailPessoa'
-               WHERE idPessoa = $id_pessoa";
+               WHERE idPessoa = $idPessoa";
       }else{
          //insert
          $sql = "INSERT INTO pessoas( nome, endereco, numero, complemento,cidade, estado, cep, datanascimento, , telefone ,  celular, email)
@@ -43,6 +43,5 @@
    mysqli_query($conexao_bd, $sql);
    mysqli_close($conexao_bd);
    header("location:pessoa_list2.php");
-   echo $sql;
    
 ?>
