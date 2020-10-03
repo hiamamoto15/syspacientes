@@ -22,14 +22,14 @@
             $sql = "UPDATE pessoas SET 
             nome             ='$nomePessoa', 
             endereco         ='$endPessoa',
-            numero           ='$numPessoa,
-            complemento      ='$complePessoa,
-            cidade           ='$cidadePessoa,
-            estado           ='$estadoPessoa,
-            cep              ='$cepPessoa,
-            datanascimento   ='$dtnascimentoPessoa,
-            telefone         ='$telefonePessoa,
-            celular          ='$celularPessoa,
+            numero           ='$numPessoa',
+            complemento      ='$complePessoa',
+            cidade           ='$cidadePessoa',
+            estado           ='$estadoPessoa',
+            cep              ='$cepPessoa',
+            datanascimento   ='$dtnascimentoPessoa',
+            telefone         ='$telefonePessoa',
+            celular          ='$celularPessoa',
             email            ='$emailPessoa'
            WHERE idPessoa = $id_pessoa";
          }else {
