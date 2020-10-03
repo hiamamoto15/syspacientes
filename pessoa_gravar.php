@@ -3,7 +3,7 @@
    require_once('variaveis.php');
    require_once('conexao.php');
 
-   $idPessoa = $_POST['inputIdPessoa'];
+   $idPessoa = $_GET['inputIdPessoa'];
 
    $idPessoa            = $_POST["inputID"];
    $nomePessoa          = $_POST["inputNome"];
@@ -44,6 +44,6 @@
       //erro!
    }
    mysqli_close($conexao_bd);
-   header("location:pessoa_list2.php");
+   header("location:pessoa.php");
    
 ?>
