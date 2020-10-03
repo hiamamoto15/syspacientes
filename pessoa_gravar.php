@@ -30,12 +30,11 @@
             datanascimento   ='$dtnascimentoPessoa,
             telefone         ='$telefonePessoa,
             celular          ='$celularPessoa,
-            email            ='$emailPessoa', 
+            email            ='$emailPessoa'
            WHERE idPessoa = $id_pessoa";
          }else {
-         $sql = "INSERT INTO pessoas ( nome, endereco, numero, complemento, cidade, estado, cep, datanascimento, telefone, celular, email)
-                               VALUES('$nomePessoa', '$endPessoa', '$numPessoa','$complePessoa', '$cidadePessoa', '$estadoPessoa', 
-                               '$cepPessoa', '$dtnascimentoPessoa','$telefonePessoa', '$celularPessoa', '$emailPessoa')";
+         $sql = "INSERT INTO pessoas( nome, endereco, numero, complemento, cidade, estado, cep, datanascimento, telefone, celular, email)
+         VALUES('$nomePessoa','$endPessoa','$numPessoa','$complePessoa','$cidadePessoa','$estadoPessoa',$cepPessoa', '$dtnascimentoPessoa','$telefonePessoa', '$celularPessoa', '$emailPessoa')";
          }
    mysqli_query($conexao_bd, $sql);
    mysqli_close($conexao_bd);
