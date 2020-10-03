@@ -4,18 +4,18 @@
    require_once('conexao.php');
 
    
-   //$id_pessoa = -1;
-   //$nomePessoa  = "";
-   //$endPessoa = "";
-   //$numPessoa = 0;
-   //$complePessoa = "";
-   //$cidadePessoa = "";
-   //$estadoPessoa = "";
-   //$cepPessoa  = "";
-   //$dtnascimentoPessoa   = "";
-   //$telefonePessoa = "";
-   //$celularPessoa = "";
-   //$emailPessoa = "";
+   $id_pessoa = -1;
+   $nomePessoa  = "";
+   $endPessoa = "";
+   $numPessoa = 0;
+   $complePessoa = "";
+   $cidadePessoa = "";
+   $estadoPessoa = "";
+   $cepPessoa  = "";
+   $dtnascimentoPessoa   = "";
+   $telefonePessoa = "";
+   $celularPessoa = "";
+   $emailPessoa = "";
 
    $id_pessoa = $_GET['idPessoa'];
       //recuperando dados da sessao

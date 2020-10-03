@@ -39,11 +39,9 @@
                                '$cepPessoa','$dtnascimentoPessoa','$telefonePessoa','$celularPessoa','$emailPessoa')";
       }
       mysqli_query($conexao_bd, $sql);
-   }else{
-      //erro!
-   }
    mysqli_close($conexao_bd);
    header("location:pessoa_list2.php");
+   echo $sql;
    
 ?>   
 
