@@ -65,8 +65,6 @@
 </head>
 <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.0.js'></script>
 <script type='text/javascript' src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
-<script type="text/javascript" src="jquery-1.2.6.pack.js"></script>
-<script type="text/javascript" src="jquery.maskedinput-1.1.4.pack.js"></script>
 </script>
 <body>
    <div class="container">
@@ -169,6 +167,7 @@
                         name="inputCep" placeholder="00000-000"
                         value="<?php echo($cepPessoa); ?>"
                         required>
+            </div>
                      
                      <div class="form-group">
                <label for="inputData">Data de nascimento:</label>
@@ -212,9 +211,22 @@
 //encerrando a conexao com mysql
 mysqli_close($conexao_bd);
 ?>
-<script type="text/javascript">
-$(document).ready(function(){
-	$("#inputCep").mask("99.999-999");
-});
-</script>   
+<script>
+    $(document).ready(function(){
+        $(":input").inputmask();
+
+        $("#inputCep").inputmask({
+        mask: '99999-000',
+        placeholder: ' ',
+        showMaskOnHover: false,
+        showMaskOnFocus: false,
+        onBeforePaste: function (pastedValue, opts) {
+        var processedValue = pastedValue;
+
+        //do something with it
+
+        return processedValue;
+        }
+        });
+</script> 
 </html>
